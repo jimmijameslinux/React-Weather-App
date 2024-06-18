@@ -1,14 +1,14 @@
 import "./styles.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Home from "./routes/Home";
+import { WeatherPage } from "./routes/WeatherPage";
 
 export default function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:cityname" element={<WeatherPage />} />
       </Routes>
     </Router>
   );

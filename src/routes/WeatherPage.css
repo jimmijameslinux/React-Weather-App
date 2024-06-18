@@ -1,0 +1,57 @@
+/* WeatherPage.css */
+.weather-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .weather-details {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #0c1f8b, #cca0ff);
+    color: white;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .weather-details:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .weather-condition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .weather-condition img {
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .weather-details p {
+    margin: 5px 0;
+    font-size: 18px;
+  }
+  
+  .go-back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .go-back-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
