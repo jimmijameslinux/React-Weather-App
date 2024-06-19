@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
-import './WeatherPage.css';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import "./WeatherPage.css";
 
 const FetchWeatherData = async (query, setWeatherData) => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_KEY}&q=${query}&aqi=no`;
@@ -8,13 +8,13 @@ const FetchWeatherData = async (query, setWeatherData) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
+      throw new Error("Network response was not ok " + response.statusText);
     }
     const data = await response.json();
     setWeatherData(data);
   } catch (error) {
     setError(error.message);
-    console.error('There was a problem with the fetch operation:', error);
+    console.error("There was a problem with the fetch operation:", error);
   }
 };
 
@@ -28,7 +28,7 @@ export const WeatherPage = () => {
   }, [cityname]);
 
   const handleGoBack = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -36,23 +36,48 @@ export const WeatherPage = () => {
       {weatherData && (
         <>
           <h1>Weather Details for {cityname}</h1>
-        <div className="weather-details">
-          <p>Temperature: {weatherData.current.temp_c}°C / {weatherData.current.temp_f}°F</p>
-          <div className="weather-condition">
-            <img src={weatherData.current.condition.icon} alt={weatherData.current.condition.text} />
-            <span>{weatherData.current.condition.text}</span>
+          <br />
+          <br />
+          <div className="weather-details">
+            <div className="weather-condition">
+              <img
+                src={weatherData.current.condition.icon}
+                alt={weatherData.current.condition.text}
+              />
+              <span>{weatherData.current.condition.text}</span>
+            </div>
+            <p className="temp">
+              Temperature: {weatherData.current.temp_c}°C /{" "}
+              {weatherData.current.temp_f}°F
+            </p>
+            <p className="feels-like">
+              Feels Like: {weatherData.current.feelslike_c}°C /{" "}
+              {weatherData.current.feelslike_f}°F
+            </p>
+            <p className="humidity">
+              Humidity: {weatherData.current.humidity}%
+            </p>
+            <p className="wind">
+              Wind: {weatherData.current.wind_mph} mph /{" "}
+              {weatherData.current.wind_kph} kph
+            </p>
+            <p className="pressure">
+              Pressure: {weatherData.current.pressure_mb} mb
+            </p>
+            <p className="precipitation">
+              Precipitation: {weatherData.current.precip_mm} mm
+            </p>
+            <p className="uv">UV Index: {weatherData.current.uv}</p>
+            <p className="gust">
+              Gust: {weatherData.current.gust_mph} mph /{" "}
+              {weatherData.current.gust_kph} kph
+            </p>
           </div>
-          <p>Feels Like: {weatherData.current.feelslike_c}°C / {weatherData.current.feelslike_f}°F</p>
-          <p>Humidity: {weatherData.current.humidity}%</p>
-          <p>Wind: {weatherData.current.wind_mph} mph / {weatherData.current.wind_kph} kph</p>
-          <p>Pressure: {weatherData.current.pressure_mb} mb</p>
-          <p>Precipitation: {weatherData.current.precip_mm} mm</p>
-          <p>UV Index: {weatherData.current.uv}</p>
-          <p>Gust: {weatherData.current.gust_mph} mph / {weatherData.current.gust_kph} kph</p>
-        </div>
         </>
       )}
-      <button onClick={handleGoBack} className="go-back-button">Go Back</button>
+      <button onClick={handleGoBack} className="go-back-button">
+        Go Back
+      </button>
     </div>
   );
 };

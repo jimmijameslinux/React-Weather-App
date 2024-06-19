@@ -40,16 +40,19 @@ export default function Home() {
 
   return (
     <div className="container">
+      <h1>Weather Application</h1>
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
         placeholder="Enter city name"
       />
-      {weatherData && (
+      {weatherData && searchParams.get("city") != "" && (
         <div className="weather-box" onClick={handleBoxClick}>
           <h1>{query}</h1>
-          <p>Temperature: {weatherData.current.temp_c}°C</p>
+          <h3>
+            {weatherData.location.region},{weatherData.location.country}
+          </h3>
           <div className="weather-condition">
             <img
               src={weatherData.current.condition.icon}
@@ -57,6 +60,9 @@ export default function Home() {
             />
             <span>{weatherData.current.condition.text}</span>
           </div>
+          <p>
+            Temperature: <b>{weatherData.current.temp_c}°C</b>
+          </p>
         </div>
       )}
     </div>

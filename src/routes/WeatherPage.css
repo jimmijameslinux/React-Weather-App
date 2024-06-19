@@ -1,57 +1,75 @@
 /* WeatherPage.css */
+* {
+  margin: 0;
+}
+/* WeatherPage.css */
 .weather-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .weather-details {
-    display: inline-block;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #0c1f8b, #cca0ff);
-    color: white;
-    text-align: left;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .weather-details:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .weather-condition {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .weather-condition img {
-    margin-right: 10px;
-    width: 64px;
-    height: 64px;
-  }
-  
-  .weather-details p {
-    margin: 5px 0;
-    font-size: 18px;
-  }
-  
-  .go-back-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-  }
-  
-  .go-back-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+  padding: 20px;
+  color: white;
+  font-family: "Arial", sans-serif;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #1c3d9b, #7d7aff);
+  text-align: left;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.weather-details:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.weather-details p {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.5;
+  transition: color 0.3s;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.weather-details p:hover {
+  color: #ffd700;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+p {
+  font-size: 20px;
+}
+
+.go-back-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ff6f61;
+  color: white;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.go-back-button:hover {
+  background-color: #e65c50;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
